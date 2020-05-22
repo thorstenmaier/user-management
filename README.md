@@ -1,21 +1,30 @@
-Kopieren Sie das Projekt „UserManagement“ und nennen die Kopie „UserManagementAOP“.
-Ergänzen Sie die Implementierung der Methode UserServiceImpl.getAllUsers() um eine zufällige Wartezeit, um den Effekt der späteren Performancemessung erkennen zu können:
+* Kopieren Sie das Projekt „UserManagement“ und nennen die Kopie „UserManagementAOP“.
+* Ergänzen Sie die Implementierung der Methode UserServiceImpl.getAllUsers() um eine zufällige Wartezeit, um den Effekt der späteren Performancemessung erkennen zu können:
+
+```java
 try {
   Thread.sleep((long) (Math.random() * 5000));
 } catch (InterruptedException e) {
 }
+```
+
 Fügen Sie eine Spring Boot Starter Dependency für „Spring AOP“ in der Datei „build.gradle“ hinzu:
+
+```gradle
 dependencies {
   compile('org.springframework.boot:spring-boot-starter-aop')
   …
 }
-Erstellen Sie das Eclipse-Projekt mit Hilfe von Gradle neu
-Öffnen Sie hierzu eine Eingabeaufforderung und wechseln in das Projektverzeichnis
-Führen Sie den Befehl „gradle cleanEclipse eclipse“ aus
-Wechseln Sie zurück in die IDE und führen dort einen Refresh (F5) auf dem Projekt aus.
-Erstellen Sie ein neues Paket „de.oio.fsboot.user.aop“.
-Fügen Sie die Klasse „PerformanceMonitor“ in dieses neue Paket ein. Diese Klasse implementiert den Performance-Aspekt:
+```
 
+* Erstellen Sie das Eclipse-Projekt mit Hilfe von Gradle neu
+** Öffnen Sie hierzu eine Eingabeaufforderung und wechseln in das Projektverzeichnis
+** Führen Sie den Befehl „gradle cleanEclipse eclipse“ aus
+** Wechseln Sie zurück in die IDE und führen dort einen Refresh (F5) auf dem Projekt aus.
+* Erstellen Sie ein neues Paket „de.oio.fsboot.user.aop“.
+* Fügen Sie die Klasse „PerformanceMonitor“ in dieses neue Paket ein. Diese Klasse implementiert den Performance-Aspekt:
+
+```java
 @Component
 @Aspect
 public class PerformanceMonitor {
@@ -30,4 +39,6 @@ public class PerformanceMonitor {
     }
   }
 }
-Starten und testen Sie die Anwendung. 
+```
+
+* Starten und testen Sie die Anwendung. 
